@@ -6,20 +6,18 @@
        
 
 $(document).ready(function(){	
-	var chosencolor;
-	var hasBeenClicked;
-	var rows;
-	var column;
 	
-	table= $('#pixelCanvas');
-	$('table tr').remove();
-	
+	let hasBeenClicked;	
+	table= $('#pixelCanvas');	
 	$('#submit').click(function(){
+		let rows;
+		let column;
+		$('table tr').remove();
 		rows = $("#inputHeight").val();
 		column = $("#inputWeight").val();
-		for(var i=0;i<rows; i++){	
+		for(let i=0;i<rows; i++){	
 			$((table).append("<tr></tr>"));
-			for(var j=0;j<column;j++){
+			for(let j=0;j<column;j++){
 				$($('tr:last').append("<td></td>"));
 			}
 		}
@@ -30,7 +28,8 @@ $(document).ready(function(){
 		hasBeenClicked = true;
 	});
 	$('.choose td').click(function(e){
-		var cell = $(e.target).get(0);
+		let chosencolor;
+		let cell = $(e.target).get(0);
 		if(hasBeenClicked){
 			chosencolor=$('#colorPicker').val();			
 			$(cell).css({backgroundColor: chosencolor});	
